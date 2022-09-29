@@ -25,10 +25,10 @@ module.exports = {
         })
     },
 
-    deleteStudent: (id,callback)=>{
+    deleteStudent: (idstudent,callback)=>{
 
-        let sql = 'DELETE FROM student WHERE id= ?'
-        bd.query(sql,id,(err,data)=>{
+        let sql = 'DELETE FROM student WHERE idstudent= ?'
+        bd.query(sql,idstudent,(err,data)=>{
             if(err)
                 //Si hay error entonces la insercion no fue exitosa
                 //en vez de tronar retorno un null
@@ -40,7 +40,7 @@ module.exports = {
     },
 
     updateStudent:(student,callback)=>{
-        let sql = 'UPDATE student SET firstname = ?, lastname = ?, roll_number = ? WHERE id = ?;'
+        let sql = 'UPDATE student SET firstname = ?, lastname = ?, rollnumber = ? WHERE idstudent = ?;'
         bd.query(sql,student,(err,data)=>{
             if(err)
                 //Si hay error entonces la insercion no fue exitosa

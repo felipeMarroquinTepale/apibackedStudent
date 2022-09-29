@@ -3,10 +3,10 @@ const studentDao = require("../models/studentDAO")
 const insertStudent=(req, res)=>{
     console.log("Insertando usuario")
     const student = {
-        id: req.body.id,
+        idstudent: req.body.idstudent,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        roll_number:req.body.roll_number,
+        rollnumber:req.body.rollnumber,
     }
     studentDao.insertStudent(student,(data)=>{
         if (data && data.affectedRows ===1){
@@ -42,8 +42,8 @@ const consultStudent = (req, res) =>{
 
 const deleteStudent = (req, res) =>{
     console.log("Eliminando estudiante")
-    const id = req.body.id;
-    studentDao.deleteStudent(id,(data)=>{
+    const idstudent = req.body.idstudent;
+    studentDao.deleteStudent(idstudent,(data)=>{
         if (data && data.affectedRows ===1){
             res.send({
                 status:true,
@@ -61,10 +61,10 @@ const deleteStudent = (req, res) =>{
 const updateStudent = (req, res) =>{
     console.log("actualizando estudiante")
     const student = {
-        id: req.body.id,
+        idstudent: req.body.idstudent,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        roll_number:req.body.roll_number,
+        rollnumber:req.body.rollnumber,
     }
     studentDao.updateStudent(student,(data)=>{
         if (data && data.affectedRows ===1){
